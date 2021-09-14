@@ -1,4 +1,4 @@
-package plants;
+package hu.kmecslilla.plants;
 
 public class Radiation {
     private int sumForAlfa = 0;

@@ -1,14 +1,14 @@
-package plants;
+package hu.kmecslilla.plants;
 
-public class DeltaTree extends Plant {
+public class PuffyTree extends Plant {
 
-    public DeltaTree(Radiation radiation, String name, int nutrient) {
+    public PuffyTree(Radiation radiation, String name, int nutrient) {
         super(radiation, name, nutrient);
     }
 
     @Override
     public boolean isAlive() {
-        if (nutrient < 1) {
+        if (nutrient < 1 || nutrient > 10) {
             return false;
         } else {
             return true;
@@ -22,27 +22,22 @@ public class DeltaTree extends Plant {
         }
         switch (radiance) {
             case ALFA_RADIANCE:
-                nutrient -= 3;
+                nutrient += 2;
                 break;
             case DELTA_RADIANCE:
-                nutrient += 4;
+                nutrient -= 2;
                 break;
             case NONE_RADIANCE:
                 nutrient -= 1;
                 break;
         }
         printNutrient();
-
     }
 
     @Override
     public void takeEffectForNextDay() {
         if (isAlive()) {
-            if (nutrient > 0 && nutrient < 5) {
-                radiation.changeDelta(4);
-            } else if (nutrient >= 5 && nutrient < 10) {
-                radiation.changeDelta(1);
-            }
+            radiation.changeAlfa(10 - nutrient);
         }
     }
 }
