@@ -1,4 +1,4 @@
-package plants;
+package hu.kmecslilla.plants;
 
 public abstract class Plant {
     protected Radiation radiation;

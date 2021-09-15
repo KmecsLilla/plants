@@ -1,4 +1,4 @@
-package plants;
+package hu.kmecslilla.plants;
 
 import java.util.ArrayList;
 import java.util.List;
